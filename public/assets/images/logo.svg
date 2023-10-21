@@ -1,0 +1,27 @@
+<svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_109_2)">
+  <!-- Background circle -->
+  <circle cx="70" cy="70" r="65" fill="#23870f" />
+
+  <!-- First top-left arc cutout -->
+  <path d="M 35 70 A 45 45 0 0 1 70 35" fill="white" />
+
+  <!-- Second top-right arc cutout -->
+  <path d="M 105 70 A 45 45 0 0 1 70 105" fill="white" />
+
+  <!-- Third bottom-left arc cutout -->
+  <path d="M 70 35 A 45 45 0 0 0 35 70" fill="white" />
+
+  <!-- Fourth bottom-right arc cutout -->
+  <path d="M 70 105 A 45 45 0 0 0 105 70" fill="white" />
+
+  <!-- Center circle cutout -->
+  <circle cx="70" cy="70" r="25" fill="white" />
+
+</g>
+<defs>
+  <clipPath id="clip0_109_2">
+    <rect width="140" height="140" fill="white" />
+  </clipPath>
+</defs>
+</svg>
