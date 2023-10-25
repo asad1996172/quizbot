@@ -5,6 +5,7 @@ import Image from "next/image"
 import { useState, useEffect } from "react"
 import { signIn, signOut, useSession, getProviders } from "next-auth/react"
 import type { ClientSafeProvider, LiteralUnion } from "next-auth/react"
+import { useChatGPTAPI } from "@context/ChatGPTAPIContext"
 
 
 const Nav = () => {
@@ -13,6 +14,8 @@ const Nav = () => {
 
     const [providers, setProviders] = useState<Record<string, ClientSafeProvider> | null>(null);
     const [toggleDropdown, setToggleDropdown] = useState(false)
+    const { chatgptapi, setChatGPTAPI } = useChatGPTAPI();
+    
 
     useEffect(() => {
         const setUpProviders = async () => {
@@ -36,6 +39,7 @@ const Nav = () => {
                 {
                     isUserLoggedIn ? (
                         <div className="flex gap-3 md:gap-5">
+                            <input type="password" className="chatgpt_input" onChange={(e) => setChatGPTAPI(e.target.value)}  placeholder="  Enter ChatGPT API here ..."></input>
                             <Link href="/create-test" className="green_btn">
                                 Create Test
                             </Link>
@@ -66,10 +70,16 @@ const Nav = () => {
             </div>
 
             {/* Mobile Navigation */}
-            <div className="sm:hidden flex relative">
+            <div className="sm:hidden flex relative ">
                 {
                     isUserLoggedIn ? (
-                        <div className="flex">
+                        <div className="flex gap-3 md:gap-5">
+                            <input
+                                type="password"
+                                className="chatgpt_input"
+                                onChange={(e) => setChatGPTAPI(e.target.value)}
+                                placeholder="  Enter ChatGPT API here ..."
+                            />
                             <Image
                                 src={session?.user?.image || '/assets/images/avatar.svg'}
                                 width={37}

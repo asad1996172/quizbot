@@ -1,6 +1,8 @@
-
+'use client'
+import { useChatGPTAPI } from "@context/ChatGPTAPIContext"
 
 const Home = () => {
+  const { chatgptapi, setChatGPTAPI } = useChatGPTAPI();
   return (
     <section className="w-full flex-center flex-col">
       <h1 className="head_text text-center">
@@ -14,6 +16,7 @@ const Home = () => {
       <p className="desc text-center">
         It&apos;s more than just a quiz – it&apos;s an interactive learning hub where curiosity meets clarity.
       </p>
+      {chatgptapi}
     </section>
   )
 }
