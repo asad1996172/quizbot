@@ -48,6 +48,10 @@ body {
   @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
 }
 
+.yellow_gradient {
+  @apply bg-gradient-to-r from-yellow-600 to-yellow-600 bg-clip-text text-transparent;
+}
+
 .desc {
   @apply mt-5 text-lg text-gray-400 sm:text-xl max-w-2xl;
 }
@@ -82,4 +86,25 @@ body {
 
 .chatgpt_input {
   @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full block w-56 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white 
+}
+
+/* Form Component */
+.form_textarea {
+  @apply w-full flex rounded-lg h-[200px] mt-2 p-3 text-sm text-gray-200 outline-0 bg-gray-700;
+}
+
+.form_input {
+  @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-100 outline-0 bg-gray-700;
+}
+
+.search_input {
+  @apply block w-full rounded-md border border-gray-900 bg-gray-700 py-2.5 pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
+}
+
+.feed {
+  @apply mt-16 mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2;
+}
+
+.prompt_card {
+  @apply flex-1 break-inside-avoid rounded-lg border border-gray-900 bg-gray-700 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit;
 }

@@ -20,7 +20,6 @@ const handler = NextAuth({
         },
         async signIn({ profile }) {
             try {
-                // serverless -> lambda -> dynamodb
                 await connectToDatabase();
 
                 // check if user exists in db
@@ -31,7 +30,7 @@ const handler = NextAuth({
                     await User.create({
                         email: profile?.email,
                         username: profile?.name?.replace(" ", "").toLowerCase(),
-                        image: profile?.image
+                        image: (profile as any).picture
                     });
                 }
 
