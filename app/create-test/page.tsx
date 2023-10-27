@@ -6,23 +6,16 @@ import { useRouter } from 'next/navigation';
 import { FormEvent } from 'react';
 
 import Form from '@components/Form';
-import Spinner from '@components/Spinner';
 
 const CreateTest = () => {
   const router = useRouter();
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const [submitting, setSubmitting] = useState(false);
   const [test, setTest] = useState({
     'title': '',
     'prompt': '',
     'tag': '',
   });
-
-  useEffect(() => {
-    if (status !== "loading" && !session) {
-      router.push('/');
-    }
-  }, [session, status])
 
   const CreateTest = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -46,10 +39,6 @@ const CreateTest = () => {
     } finally {
       setSubmitting(false);
     }
-  }
-
-  if (!session) {
-    return <Spinner />;
   }
 
   return (

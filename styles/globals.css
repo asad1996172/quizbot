@@ -27,6 +27,9 @@ body {
 .green_btn {
   @apply rounded-full border border-green-700 bg-green-700 py-1.5 px-5 text-white transition-all hover:bg-green-900 hover:text-white text-center text-sm flex items-center justify-center;
 }
+.yellow_btn {
+  @apply rounded-full border border-yellow-700 bg-yellow-700 py-1.5 px-5 text-white transition-all hover:bg-yellow-900 hover:text-white text-center text-sm flex items-center justify-center;
+}
 
 .app {
   @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
@@ -106,5 +109,25 @@ body {
 }
 
 .prompt_card {
-  @apply flex-1 break-inside-avoid rounded-lg border border-gray-900 bg-gray-700 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit;
+  @apply flex-1 break-inside-avoid rounded-lg border border-gray-900 bg-gray-900 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit;
+}
+
+.prompt_layout {
+  @apply space-y-6 py-8 sm:columns-2 sm:gap-6 xl:columns-3;
+}
+
+.flex-center {
+  @apply flex justify-center items-center;
+}
+
+.flex-start {
+  @apply flex justify-start items-start;
+}
+
+.flex-end {
+  @apply flex justify-end items-center;
+}
+
+.flex-between {
+  @apply flex justify-between items-center;
 }

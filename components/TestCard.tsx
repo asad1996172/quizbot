@@ -4,12 +4,14 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 import { usePathname, useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const TestCard = ({ test, handleTagClick, handleEdit, handleDelete }) => {
     const [copied, setCopied] = useState("");
     const { data: session } = useSession();
     const pathName = usePathname();
-    const router = useRouter();
+    console.log(test);
+    console.log(session)
 
     const handleCopy = () => {
         setCopied(test.prompt);
@@ -44,8 +46,8 @@ const TestCard = ({ test, handleTagClick, handleEdit, handleDelete }) => {
                     <Image
                         src={copied === test.prompt ? '/assets/icons/tick.svg' : '/assets/icons/copy.svg'}
                         alt='copy_icon'
-                        width={12}
-                        height={12}
+                        width={18}
+                        height={18}
                     />
 
                 </div>
@@ -55,7 +57,7 @@ const TestCard = ({ test, handleTagClick, handleEdit, handleDelete }) => {
             <h2 className='my-4  text-lg green_gradient font-semibold'>
                 {test.title}
             </h2>
-            <p className='my-4  text-sm text-gray-400'>
+            <p className='my-4  text-sm text-gray-400 whitespace-pre-line'>
                 {test.prompt}
             </p>
 
@@ -67,17 +69,22 @@ const TestCard = ({ test, handleTagClick, handleEdit, handleDelete }) => {
                 ))
             }
 
+            <div className='mt-5 flex-center gap-4 '>
             {((session?.user) as any)?.id === test.creator._id &&
                 pathName === '/profile' && (
-                    <div className='mt-5 flex-center gap-4 border-t border-gray-100 pt-3'>
-                        <p className='font-inter text-md green_gradient cursor-pointer black_btn' onClick={handleEdit}>
+                    <>
+                        <p className='text-md cursor-pointer outline_btn' onClick={handleEdit}>
                             Edit
                         </p>
-                        <p className='font-inter text-md orange_gradient cursor-pointer black_btn' onClick={handleDelete}>
+                        <p className='text-md cursor-pointer outline_btn' onClick={handleDelete}>
                             Delete
                         </p>
-                    </div>
+                    </>
                 )}
+                <Link href={`/start-test?id=${test._id}`} className="green_btn">
+                    Start Test
+                </Link>
+            </div>
 
         </div>
     )
