@@ -13,6 +13,17 @@ const StartTest = () => {
   const { chatgptapi, setChatGPTAPI } = useChatGPTAPI();
   const [isApiValid, setIsApiValid] = useState(false);
   const [openai, setOpenai] = useState(null);
+  const [totalQuestions, setTotalQuestions] = useState(0);
+  const [totalCorrect, setTotalCorrect] = useState(0);
+  const [resultPercentage, setResultPercentage] = useState(0);
+
+  useEffect(() => {
+    if (totalQuestions > 0) {
+      const percentage = (totalCorrect / totalQuestions) * 100;
+      setResultPercentage(percentage);
+    }
+  }, [totalQuestions, totalCorrect]);
+
 
   const [inputTest, setInputText] = useState('');
 
@@ -41,7 +52,7 @@ const StartTest = () => {
           apiKey: chatgptapi,
           dangerouslyAllowBrowser: true
         });
-        
+
         const chatCompletion = await openaiObj.chat.completions.create({
           messages: [{ role: 'user', content: 'Say this is a test' }],
           model: 'gpt-3.5-turbo',
@@ -66,6 +77,12 @@ const StartTest = () => {
         className='flex flex-col w-full p-5 bg-gray-900 rounded-3xl'>
 
         <div className='flex-grow overflow-y-auto'>
+          {!isApiValid && (
+            <div className='w-full bg-red-950 rounded-3xl px-5 py-3 mb-4'>
+              Please enter the correct ChatGPT API key to start test.
+            </div>
+          )
+          }
           <div className='w-full bg-green-950 rounded-3xl px-5 py-3 mb-4'>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque voluptatem quaerat eum adipisci, sequi magni sint, amet at laudantium, repudiandae corporis ducimus? Temporibus est sit iure. Ullam illum quae non.
           </div>
@@ -87,6 +104,7 @@ const StartTest = () => {
                 console.log(inputTest);
               }
             }}
+            disabled={!isApiValid}
           />
           <button
             onClick={() => {
@@ -109,21 +127,21 @@ const StartTest = () => {
 
         {/* Left Buttons */}
         <div className='flex mb-4 md:mb-0 mr-4 space-x-2'>
-          <button className='green_btn'>
+          <button className={isApiValid ? 'green_btn' : 'light_btn'} disabled={!isApiValid}>
             Start Test
           </button>
-          <button className='yellow_btn'>
+          <button className={isApiValid ? 'yellow_btn' : 'light_btn'} disabled={!isApiValid}>
             Next Question
           </button>
         </div>
 
         {/* Right Glowing Progress Bar */}
         <div className='flex items-center w-full md:w-auto'>
-          <span className="mr-4 rounded-full border border-white bg-transparent py-1.5 px-5 text-white">Result: 45%</span>
+          <span className="mr-4 rounded-full border border-white bg-transparent py-1.5 px-5 text-white">Result: {resultPercentage}%</span>
 
           <div className='relative w-64 md:w-80'>
             <div className="w-full h-9 bg-gray-200 rounded-full dark:bg-gray-700">
-              <div className="h-9 bg-gradient-to-r from-pink-500 to-blue-500 rounded-full dark:bg-blue-500 shadow-md" style={{ width: '45%' }}></div>
+              <div className="h-9 bg-gradient-to-r from-pink-500 to-blue-500 rounded-full dark:bg-blue-500 shadow-md" style={{ width: `${resultPercentage}%` }}></div>
             </div>
           </div>
         </div>

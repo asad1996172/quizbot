@@ -27,6 +27,11 @@ body {
 .green_btn {
   @apply rounded-full border border-green-700 bg-green-700 py-1.5 px-5 text-white transition-all hover:bg-green-900 hover:text-white text-center text-sm flex items-center justify-center;
 }
+.light_btn {
+  @apply rounded-full border border-gray-700 bg-gray-700 py-1.5 px-5 text-white transition-all  text-center text-sm flex items-center justify-center;
+}
+
+
 .yellow_btn {
   @apply rounded-full border border-yellow-700 bg-yellow-700 py-1.5 px-5 text-white transition-all hover:bg-yellow-900 hover:text-white text-center text-sm flex items-center justify-center;
 }
