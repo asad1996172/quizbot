@@ -76,6 +76,7 @@ const Nav = () => {
                         <div className="flex gap-3 md:gap-5">
                             <input
                                 type="password"
+                                value={chatgptapi}
                                 className="chatgpt_input"
                                 onChange={(e) => setChatGPTAPI(e.target.value)}
                                 placeholder="  Enter ChatGPT API here ..."
