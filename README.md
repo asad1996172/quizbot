@@ -1,4 +1,21 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# QuizBot
+QuizBot is an interactive platform that allows users to explore and share quizzes powered by ChatGPT. Users can dive into personalized tests on topics of their choosing, get questions marked in real-time, and if puzzled by an answer, chat directly with the AI to understand why. It serves as an interactive learning hub where curiosity meets clarity.
+
+Features:
+- User Authentication: The application provides Google authentication for users to sign in.
+- Quiz Creation: Users can create personalized quizzes with specific prompts, tags, and titles.
+- Quiz Exploration: The platform offers a feed where users can explore various quizzes created by others.
+- Profile Management: Users can view and manage their profiles, including the quizzes they've created.
+- Search Functionality: Users can search for quizzes based on tags or usernames.
+- Chat Functionality: Users can chat with the AI to understand why a certain answer is correct or incorrect.
+- Real-time Marking: The application marks the user's answers in real-time and provides feedback.
+
+Technical Details:
+- Stack: Next.js, React, TypeScript, Tailwind CSS, MongoDb Atlas, ChatGPT
+- Deployment: Vercel
+- APIs & Integrations: NextAuth for authentication with Google.
+- Database Technologies: MongoDB
+
 
 ## Getting Started
 
@@ -15,22 +32,3 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
