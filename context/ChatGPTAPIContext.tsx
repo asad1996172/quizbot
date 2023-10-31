@@ -21,34 +21,39 @@ interface ChatGPTAPIProviderProps {
 }
 
 export function ChatGPTAPIProvider({ children }: ChatGPTAPIProviderProps) {
-    const [chatgptapi, setChatGPTAPIState] = useState<string | null>(() => {
-        // Initialize state from sessionStorage if available
-        const storedValue = sessionStorage.getItem('chatgptapi');
-        return storedValue !== null ? storedValue : null;
-    });
+    const [chatgptapi, setChatGPTAPIState] = useState<string | null>(null);
 
     // This function updates sessionStorage and the state
     const setChatGPTAPI = (value: string | null) => {
-        setChatGPTAPIState(value);
-        if (value === null) {
-            sessionStorage.removeItem('chatgptapi');
-        } else {
-            sessionStorage.setItem('chatgptapi', value);
+        if (typeof window !== 'undefined') { // Check if window is defined
+            setChatGPTAPIState(value);
+            if (value === null) {
+                sessionStorage.removeItem('chatgptapi');
+            } else {
+                sessionStorage.setItem('chatgptapi', value);
+            }
         }
     };
 
     // Effect to sync sessionStorage with state
     useEffect(() => {
-        const handleStorageChange = (event: StorageEvent) => {
-            if (event.key === 'chatgptapi') {
-                setChatGPTAPIState(event.newValue);
+        if (typeof window !== 'undefined') { // Check if window is defined
+            const storedValue = sessionStorage.getItem('chatgptapi');
+            if (storedValue !== null) {
+                setChatGPTAPIState(storedValue);
             }
-        };
 
-        window.addEventListener('storage', handleStorageChange);
+            const handleStorageChange = (event: StorageEvent) => {
+                if (event.key === 'chatgptapi') {
+                    setChatGPTAPIState(event.newValue);
+                }
+            };
 
-        // Clean up the event listener on component unmount
-        return () => window.removeEventListener('storage', handleStorageChange);
+            window.addEventListener('storage', handleStorageChange);
+
+            // Clean up the event listener on component unmount
+            return () => window.removeEventListener('storage', handleStorageChange);
+        }
     }, []);
 
     return (
