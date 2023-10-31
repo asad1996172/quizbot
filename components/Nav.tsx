@@ -39,7 +39,7 @@ const Nav = () => {
                 {
                     isUserLoggedIn ? (
                         <div className="flex gap-3 md:gap-5">
-                            <input type="password" className="chatgpt_input" onChange={(e) => setChatGPTAPI(e.target.value)}  placeholder="  Enter ChatGPT API here ..."></input>
+                            <input type="password" className="chatgpt_input" value={chatgptapi} onChange={(e) => setChatGPTAPI(e.target.value)}  placeholder="  Enter ChatGPT API here ..."></input>
                             <Link href="/create-test" className="green_btn">
                                 Create Test
                             </Link>

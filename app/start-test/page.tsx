@@ -136,7 +136,7 @@ const StartTest = () => {
         tag: data.tag,
       })
       setQuestionTemplate(`
-${test.prompt}
+${data.prompt}
 ------------
 Generate a question (make sure you only generate one) for above given 
 description for a test. 
