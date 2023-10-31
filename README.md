@@ -32,3 +32,6 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Demo
+[![Video Instructions to Run Code](https://i.ytimg.com/vi/02g7MAkJuHQ/hqdefault.jpg)](https://www.youtube.com/watch?v=02g7MAkJuHQ)
