@@ -1,6 +1,8 @@
 # QuizBot
 QuizBot is an interactive platform that allows users to explore and share quizzes powered by ChatGPT. Users can dive into personalized tests on topics of their choosing, get questions marked in real-time, and if puzzled by an answer, chat directly with the AI to understand why. It serves as an interactive learning hub where curiosity meets clarity.
 
+![alt text]('https://github.com/asad1996172/quizbot/blob/main/ss.png' "SS")
+
 Features:
 - User Authentication: The application provides Google authentication for users to sign in.
 - Quiz Creation: Users can create personalized quizzes with specific prompts, tags, and titles.
